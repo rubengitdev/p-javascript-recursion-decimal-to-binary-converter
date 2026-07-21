@@ -1,3 +1,4 @@
+/* STREAMING_CHUNK:Configuring root layout and global color scheme... */
 *,
 *::before,
 *::after {
@@ -7,134 +8,180 @@
 }
 
 :root {
-    --light-grey: #f5f6f7;
-    --dark-blue: #1b1b32;
-    --orange: #f1be32;
+    --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    --card-bg: rgba(30, 41, 59, 0.75);
+    --card-border: rgba(255, 255, 255, 0.1);
+    --primary-color: #38bdf8;
+    --primary-hover: #0284c7;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --input-bg: #0f172a;
+    --shadow-color: rgba(0, 0, 0, 0.3);
 }
 
 body {
+    min-height: 100vh;
+    background: var(--bg-gradient);
+    color: var(--text-primary);
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family:
-        Menlo,
-        Consolas,
-        Monaco,
-        Liberation Mono,
-        Lucida Console,
-        monospace;
-    font-size: 1.125rem;
-    color: var(--light-grey);
-    background-color: var(--dark-blue);
-    padding: 0 4px;
+    justify-content: flex-start;
+    padding: 3rem 1rem;
+    gap: 1.5rem;
 }
 
+/* STREAMING_CHUNK:Styling headings and main title... */
 h1 {
-    font-size: 2.125rem;
     text-align: center;
-    margin: 20px 0;
+    font-size: 2.25rem;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    text-shadow: 0 4px 12px rgba(56, 189, 248, 0.25);
 }
 
 h2 {
-    font-size: 1.5rem;
-    text-align: center;
-    margin: 20px 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-top: 0.5rem;
+    align-self: flex-start;
 }
 
+/* STREAMING_CHUNK:Formatting input section container... */
 .input-container {
+    width: 100%;
+    max-width: 440px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    backdrop-filter: blur(12px);
+    padding: 1.75rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 25px -5px var(--shadow-color);
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    justify-content: center;
-    align-items: center;
-    width: clamp(320px, 50vw, 460px);
-    margin: 10px auto;
+    gap: 1rem;
 }
 
-.input-container label {
-    white-space: nowrap;
-    word-spacing: -6px;
+label {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-secondary);
 }
 
-.convert-btn {
-    font-size: inherit;
-    font-family: inherit;
-    background-color: var(--orange);
-    width: 100%;
-    height: 2rem;
-    padding: 0 6px;
-    border: none;
-    border-radius: 2px;
-    cursor: pointer;
-}
-
+/* STREAMING_CHUNK:Styling number input element... */
 .number-input {
-    font-size: inherit;
-    padding: 0.3rem;
     width: 100%;
+    padding: 0.85rem 1rem;
+    background-color: var(--input-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 0.5rem;
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    font-weight: 600;
+    outline: none;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
+.number-input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+}
+
+/* Hide spin buttons for clean input look */
+.number-input::-webkit-outer-spin-button,
+.number-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* STREAMING_CHUNK:Designing convert button interactions... */
+.convert-btn {
+    width: 100%;
+    padding: 0.85rem;
+    background-color: var(--primary-color);
+    color: #0f172a;
+    font-size: 1rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition:
+        background-color 0.2s ease,
+        transform 0.1s ease,
+        box-shadow 0.2s ease;
+    box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
+}
+
+.convert-btn:hover {
+    background-color: var(--primary-hover);
+    color: #ffffff;
+    box-shadow: 0 6px 16px rgba(2, 132, 199, 0.4);
+}
+
+.convert-btn:active {
+    transform: scale(0.98);
+}
+
+/* STREAMING_CHUNK:Styling output container and display field... */
 .output-container {
-    margin-inline: auto;
-    width: clamp(320px, 50vw, 460px);
+    width: 100%;
+    max-width: 440px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    backdrop-filter: blur(12px);
+    padding: 1.75rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 25px -5px var(--shadow-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
 }
 
 #result {
+    width: 100%;
+    min-height: 3.5rem;
+    background-color: var(--input-bg);
+    border: 1px dashed var(--primary-color);
+    border-radius: 0.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2rem;
-    text-align: center;
-    min-height: 80px;
-    margin-block-start: 20px;
-    padding: 15px;
-    border: 2px solid var(--orange);
-    border-radius: 2px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    letter-spacing: 0.1em;
+    padding: 0.5rem 1rem;
+    word-break: break-all;
 }
 
+/* STREAMING_CHUNK:Formatting animation container and frame items... */
 #animation-container {
+    width: 100%;
+    min-height: 80px;
     display: flex;
     flex-direction: column-reverse;
-    justify-content: end;
-    gap: 1rem;
-    margin-block-end: 1rem;
-    min-height: 40vh;
-    border: 2px dashed var(--orange);
-    padding: 1rem;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    background-color: rgba(15, 23, 42, 0.5);
 }
 
-.animation-frame {
-    font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        avenir next,
-        avenir,
-        segoe ui,
-        helvetica neue,
-        helvetica,
-        Cantarell,
-        Ubuntu,
-        roboto,
-        noto,
-        arial,
-        sans-serif;
-    padding: 15px 10px;
-    border: 5px solid var(--orange);
-    font-size: 1.2rem;
-    text-align: center;
-}
-
-@media screen and (min-width: 36em) {
-    body {
-        font-size: 1rem;
-    }
-
-    .input-container {
-        flex-direction: row;
-        width: unset;
-    }
-
-    .number-input {
-        width: unset;
-    }
+/* Dynamic call stack items created via JavaScript */
+#animation-container > * {
+    padding: 0.6rem 1rem;
+    background-color: #334155;
+    border-left: 4px solid var(--primary-color);
+    border-radius: 0.25rem;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }

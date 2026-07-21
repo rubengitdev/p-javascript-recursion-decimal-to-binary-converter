@@ -1,4 +1,3 @@
-/* STREAMING_CHUNK:Configuring root layout and global color scheme... */
 *,
 *::before,
 *::after {
@@ -31,7 +30,6 @@ body {
     gap: 1.5rem;
 }
 
-/* STREAMING_CHUNK:Styling headings and main title... */
 h1 {
     text-align: center;
     font-size: 2.25rem;
@@ -53,7 +51,6 @@ h2 {
     align-self: flex-start;
 }
 
-/* STREAMING_CHUNK:Formatting input section container... */
 .input-container {
     width: 100%;
     max-width: 440px;
@@ -74,7 +71,6 @@ label {
     color: var(--text-secondary);
 }
 
-/* STREAMING_CHUNK:Styling number input element... */
 .number-input {
     width: 100%;
     padding: 0.85rem 1rem;
@@ -95,14 +91,12 @@ label {
     box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
 }
 
-/* Hide spin buttons for clean input look */
 .number-input::-webkit-outer-spin-button,
 .number-input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
 
-/* STREAMING_CHUNK:Designing convert button interactions... */
 .convert-btn {
     width: 100%;
     padding: 0.85rem;
@@ -130,7 +124,6 @@ label {
     transform: scale(0.98);
 }
 
-/* STREAMING_CHUNK:Styling output container and display field... */
 .output-container {
     width: 100%;
     max-width: 440px;
@@ -163,7 +156,6 @@ label {
     word-break: break-all;
 }
 
-/* STREAMING_CHUNK:Formatting animation container and frame items... */
 #animation-container {
     width: 100%;
     min-height: 80px;
@@ -175,7 +167,6 @@ label {
     background-color: rgba(15, 23, 42, 0.5);
 }
 
-/* Dynamic call stack items created via JavaScript */
 #animation-container > * {
     padding: 0.6rem 1rem;
     background-color: #334155;
